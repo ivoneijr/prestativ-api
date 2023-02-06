@@ -1,18 +1,13 @@
-import express from 'express'
+import express from 'express';
+import status from './routes/status';
+import users from './routes/users';
 
-const app = express()
+const app = express();
+app.use(express.json());
 
-app.get('/', (req, res) => {
-  return res.send('ok')
-})
+app.use('/status', status);
+app.use('/users', users);
 
-app.listen(3000, () =>{
-  console.log('listening....')
-})
-
-
-console.log('@@@@@')
-
-const run = async () => {
-  console.log("xablau")
-}
+app.listen(3000, () => {
+  console.log('listening....');
+});
