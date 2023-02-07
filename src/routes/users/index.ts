@@ -1,8 +1,8 @@
 import express from 'express';
+import controller from '../../controllers/users';
+
 const router = express.Router({ mergeParams: true });
 
-router.get('/', (req, res) => {
-  return res.send('GET /users/');
-});
+router.get('/', controller.list);
 
 export default router;
