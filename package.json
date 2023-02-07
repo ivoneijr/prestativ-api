@@ -2,6 +2,9 @@
   "name": "prestativ-api",
   "version": "1.0.0",
   "main": "src/index.ts",
+  "engines": {
+    "node": "14.x"
+  },
   "repository": "https://github.com/ivoneijr/prestativ-api.git",
   "author": "ivoneijr <ivoneijr@gmail.com>",
   "license": "MIT",
