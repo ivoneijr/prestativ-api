@@ -1,6 +1,5 @@
 import { type User } from '@prisma/client';
 import { prisma } from '../../db/prisma/client';
-import { exclude, type UserWithoutPassword } from '../../entities/User';
 import { ApiError } from '../../utils/api-error';
 import { HTTP } from '../../utils/constants';
 import { generateHash } from '../../utils/auth';
@@ -11,7 +10,8 @@ async function list(): Promise<User[]> {
   return users;
 }
 
-async function create(data: any): Promise<UserWithoutPassword> {
+// TODO: add schema validation with ZOD
+async function create(data: any): Promise<User> {
   try {
     const user = await prisma.user.create({
       data: {
@@ -20,7 +20,7 @@ async function create(data: any): Promise<UserWithoutPassword> {
       }
     });
 
-    return exclude(user, ['password']);
+    return { ...user, password: '*' };
   } catch (error: any) {
     // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
     throw error?.message.includes('emailShouldBeUniqueUnique')

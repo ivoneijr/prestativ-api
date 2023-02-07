@@ -4,9 +4,10 @@ import Log from 'debug';
 import dotenv from 'dotenv';
 
 import expressLogger from './middlewares/express-logger';
+import { handleErrors } from './middlewares/api-error';
 import status from './routes/status';
 import users from './routes/users';
-import { handleErrors } from './middlewares/api-error';
+import auth from './routes/auth';
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.use(expressLogger);
 
 app.use('/status', status);
 app.use('/users', users);
+app.use('/auth', auth);
 
 app.use(handleErrors);
 app.listen(process.env.PORT, () => {
