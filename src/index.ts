@@ -15,7 +15,7 @@ const app = express();
 app.use(express.json());
 app.use(expressLogger);
 
-app.use('/status', status);
+app.use(['/', '/status'], status);
 app.use('/users', users);
 app.use('/auth', auth);
 
