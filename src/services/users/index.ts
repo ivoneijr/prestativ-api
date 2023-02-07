@@ -16,7 +16,14 @@ async function create(data: any): Promise<User> {
     const user = await prisma.user.create({
       data: {
         ...data,
-        password: await generateHash(data.password)
+        password: await generateHash(data.password),
+        title: data.title
+          ? {
+              create: {
+                ...data.title
+              }
+            }
+          : undefined
       }
     });
 

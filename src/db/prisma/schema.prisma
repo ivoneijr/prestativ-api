@@ -43,4 +43,6 @@ model UserTitle {
   updatedAt   DateTime @default(now()) @updatedAt
 
   User User[]
+
+  @@map("user_titles")
 }
