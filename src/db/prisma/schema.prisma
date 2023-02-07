@@ -30,6 +30,9 @@ model User {
 
   title       UserTitle? @relation(fields: [userTitleId], references: [id])
   userTitleId String?    @db.ObjectId
+
+  @@unique([email], map: "emailShouldBeUniqueUnique")
+  @@map("users")
 }
 
 model UserTitle {

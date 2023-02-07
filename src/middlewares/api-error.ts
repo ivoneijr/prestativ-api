@@ -14,5 +14,9 @@ export const handleErrors = (
       ? 'Internal Server Error'
       : error.message;
 
+  if (code === HTTP.INTERNAL_SERVER_ERROR) {
+    console.log(error);
+  }
+
   return res.status(code).json({ code, message });
 };
