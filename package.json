@@ -9,7 +9,7 @@
   "author": "ivoneijr <ivoneijr@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "tsx dist/index",
+    "start": "node dist/index.js",
     "start:dev": "DEBUG=api:* tsx watch src/index",
     "build": "tsup src",
     "test": "vitest",

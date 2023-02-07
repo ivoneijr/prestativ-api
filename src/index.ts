@@ -20,6 +20,6 @@ app.use('/users', users);
 app.use('/auth', auth);
 
 app.use(handleErrors);
-app.listen(process.env.PORT, () => {
-  Log('api:main')(`API up and running on port ${process.env.PORT ?? ''}`);
+app.listen(process.env.PORT ?? 5050, () => {
+  Log('api:main')(`API up and running on port ${process.env.PORT ?? '5050'}`);
 });
