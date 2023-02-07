@@ -23,12 +23,16 @@
   },
   "scripts": {
     "start": "tsx src/index",
-    "start:dev": "tsx watch src/index",
+    "start:dev": "DEBUG=api:* tsx watch src/index",
     "build": "tsup src",
     "test": "vitest"
   },
   "dependencies": {
+    "@types/debug": "^4.1.7",
     "@types/node": "^18.11.19",
-    "express": "^4.18.2"
+    "debug": "^4.3.4",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "winston": "^3.8.2"
   }
 }
