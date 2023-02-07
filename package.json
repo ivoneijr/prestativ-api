@@ -6,12 +6,12 @@
   "author": "ivoneijr <ivoneijr@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "tsx src/index",
+    "start": "tsx dist/index",
     "start:dev": "DEBUG=api:* tsx watch src/index",
     "build": "tsup src",
     "test": "vitest",
-    "prisma:generate": "yarn prisma generate --schema=./src/db/prisma/schema.prisma",
-    "prisma:db:push": "yarn prisma db push --schema=./src/db/prisma/schema.prisma"
+    "prisma:generate": "yarn prisma generate --schema=./prisma/schema.prisma",
+    "prisma:db:push": "yarn prisma db push --schema=./prisma/schema.prisma"
   },
   "dependencies": {
     "@prisma/client": "^4.9.0",

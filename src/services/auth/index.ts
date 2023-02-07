@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-import { prisma } from '../../db/prisma/client';
+import { prisma } from '../../db/client';
 import { ApiError } from '../../utils/api-error';
 import { HTTP } from '../../utils/constants';
 
@@ -13,7 +13,7 @@ async function login(data: any): Promise<any> {
     }
   });
 
-  if (!user) {
+  if (user == null) {
     throw new ApiError(HTTP.BAD_REQUEST, 'User Not Found');
   }
 

@@ -1,5 +1,5 @@
 import { type User } from '@prisma/client';
-import { prisma } from '../../db/prisma/client';
+import { prisma } from '../../db/client';
 import { ApiError } from '../../utils/api-error';
 import { HTTP } from '../../utils/constants';
 import { generateHash } from '../../utils/auth';
