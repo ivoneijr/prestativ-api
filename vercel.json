@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "installCommand": "yarn install",
+  "installCommand": "yarn install && yarn prisma generate --schema=./prisma/schema.prisma",
   "buildCommand": "yarn build",
   "outputDirectory": "dist",
   "builds": [
