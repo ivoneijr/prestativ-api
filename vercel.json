@@ -1,7 +1,7 @@
 {
   "version": 2,
   "installCommand": "yarn install",
-  "buildCommand": "yarn build",
+  "buildCommand": "tsup src",
   "outputDirectory": "dist",
   "builds": [
     {
