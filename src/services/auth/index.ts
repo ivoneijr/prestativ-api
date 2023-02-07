@@ -1,4 +1,3 @@
-// import { type User } from '@prisma/client';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
@@ -32,7 +31,7 @@ async function login(data: any): Promise<any> {
     },
     process.env.JWT_SECRET as string,
     {
-      expiresIn: process.env.JWT_EXPIRES_IN as string
+      expiresIn: Number(process.env.JWT_EXPIRES_IN as string)
     }
   );
 

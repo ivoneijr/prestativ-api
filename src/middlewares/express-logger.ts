@@ -3,12 +3,14 @@ import Log from 'debug';
 
 const expressLogger = (
   req: Request,
-  res: Response,
+  _res: Response,
   next: NextFunction
 ): void => {
   const path = req.url.split('/')[1];
   const log = Log(`api:${path}`);
-  const msg = `${req.method} ${req.url} ${JSON.stringify(req.body)}`;
+  const msg = `${req.method} ${req.url} ${JSON.stringify(
+    req.body
+  )} ${JSON.stringify(req.headers)}`;
 
   log(msg);
 
