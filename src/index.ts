@@ -2,6 +2,7 @@ import 'express-async-errors';
 import express from 'express';
 import Log from 'debug';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 import expressLogger from './middlewares/express-logger';
 import { handleErrors } from './middlewares/api-error';
@@ -12,6 +13,7 @@ import auth from './routes/auth';
 dotenv.config();
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use(expressLogger);
 

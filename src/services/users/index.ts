@@ -4,8 +4,43 @@ import { ApiError } from '../../utils/api-error';
 import { HTTP } from '../../utils/constants';
 import { generateHash } from '../../utils/auth';
 
-async function list(): Promise<User[]> {
-  const users = await prisma.user.findMany();
+async function list({
+  page,
+  size
+}: {
+  page: number;
+  size: number;
+}): Promise<User[]> {
+  const users = await prisma.user.findMany({
+    skip: page,
+    take: size
+  });
+
+  return users;
+}
+
+async function search(term: string): Promise<User[]> {
+  const users = await prisma.user.findMany({
+    where: {
+      OR: [
+        {
+          firstName: {
+            contains: term
+          }
+        },
+        {
+          lastName: {
+            contains: term
+          }
+        },
+        {
+          email: {
+            contains: term
+          }
+        }
+      ]
+    }
+  });
 
   return users;
 }
@@ -38,5 +73,6 @@ async function create(data: any): Promise<User> {
 
 export default {
   list,
-  create
+  create,
+  search
 };
