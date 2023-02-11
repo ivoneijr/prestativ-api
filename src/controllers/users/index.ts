@@ -17,10 +17,17 @@ async function list(req: Request, res: Response): Promise<void> {
 async function create(req: Request, res: Response): Promise<void> {
   const user = await service.create(req.body);
 
+  res.json({ ...user, password: '*' });
+}
+
+async function getUser(req: Request, res: Response): Promise<void> {
+  const user = await service.getById(req.params.id);
+
   res.status(201).json(user);
 }
 
 export default {
   list,
-  create
+  create,
+  getUser
 };

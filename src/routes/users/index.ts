@@ -5,6 +5,7 @@ import { createPayloadSchema } from './schemas';
 const router = express.Router({ mergeParams: true });
 
 router.get('/', controller.list);
+router.get('/:id', controller.getUser);
 router.post('/', validate(createPayloadSchema), controller.create);
 
 export default router;

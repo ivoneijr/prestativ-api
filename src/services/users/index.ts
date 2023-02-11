@@ -45,6 +45,16 @@ async function search(term: string): Promise<User[]> {
   return users;
 }
 
+async function getById(id: string): Promise<User | null> {
+  const user = await prisma.user.findFirst({
+    where: {
+      id
+    }
+  });
+
+  return user;
+}
+
 // TODO: add schema validation with ZOD
 async function create(data: any): Promise<User> {
   try {
@@ -74,5 +84,6 @@ async function create(data: any): Promise<User> {
 export default {
   list,
   create,
-  search
+  search,
+  getById
 };
