@@ -18,15 +18,16 @@ enum UserRole {
 }
 
 model User {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  firstName String
-  lastName  String
-  email     String
-  password  String
-  role      UserRole
-  isActive  Boolean
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  firstName   String
+  lastName    String
+  email       String
+  password    String
+  role        UserRole
+  isActive    Boolean
+  firstAccess Boolean
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
 
   title       UserTitle? @relation(fields: [userTitleId], references: [id])
   userTitleId String?    @db.ObjectId
